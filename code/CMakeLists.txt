@@ -111,7 +111,7 @@ add_custom_command(TARGET ${ELF_NAME}
 
 add_custom_command(TARGET ${ELF_NAME}
                    POST_BUILD
-                   COMMAND arm-none-eabi-objcopy ARGS -O binary ${ELF_NAME}  ${BIN_NAME}
+                   COMMAND arm-none-eabi-objcopy ARGS -O binary ${ELF_NAME}  ${CMAKE_SOURCE_DIR}/../firmware/${BIN_NAME}
                    )
 
 

@@ -23,11 +23,11 @@
 #include "led.h"
 					    			 
 
-//ÅäÖÃUSBÊ±ÖÓ,USBclk=48Mhz
+//é…ç½®USBæ—¶é’Ÿ,USBclk=48Mhz
 void Set_USBClock(void)
 {
 	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);//USBclk=PLLclk/1.5=48Mhz	
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	 //USBÊ±ÖÓÊ¹ÄÜ
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, ENABLE);	 //USBæ—¶é’Ÿä½¿èƒ½
 	 					 
 }
 
@@ -64,7 +64,7 @@ void Leave_LowPowerMode(void)
   }
 
 }   
-//USBÖĞ¶ÏÅäÖÃ
+//USBä¸­æ–­é…ç½®
 void USB_Interrupts_Config(void)
 {
 
@@ -77,21 +77,21 @@ void USB_Interrupts_Config(void)
 
 	/* Configure the EXTI line 18 connected internally to the USB IP */
 	EXTI_ClearITPendingBit(EXTI_Line18);
-											  //  ¿ªÆôÏß18ÉÏµÄÖĞ¶Ï
+											  //  å¼€å¯çº¿18ä¸Šçš„ä¸­æ–­
 	EXTI_InitStructure.EXTI_Line = EXTI_Line18; // USB resume from suspend mode
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;	//line 18ÉÏÊÂ¼şÉÏÉı½µÑØ´¥·¢
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;	//line 18ä¸Šäº‹ä»¶ä¸Šå‡é™æ²¿è§¦å‘
 	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
 	EXTI_Init(&EXTI_InitStructure); 	 
 
 	/* Enable the USB interrupt */
-	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;	//×é2£¬ÓÅÏÈ¼¶´ÎÖ® 
+	NVIC_InitStructure.NVIC_IRQChannel = USB_LP_CAN1_RX0_IRQn;	//ç»„2ï¼Œä¼˜å…ˆçº§æ¬¡ä¹‹ 
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 	
 	/* Enable the USB Wake-up interrupt */
-	NVIC_InitStructure.NVIC_IRQChannel = USBWakeUp_IRQn;   //×é2£¬ÓÅÏÈ¼¶×î¸ß	
+	NVIC_InitStructure.NVIC_IRQChannel = USBWakeUp_IRQn;   //ç»„2ï¼Œä¼˜å…ˆçº§æœ€é«˜	
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
 	NVIC_Init(&NVIC_InitStructure);  	 
 }		 
