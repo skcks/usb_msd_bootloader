@@ -19,7 +19,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "sys.h"
-
+#include <stdio.h>
 /* Private define ------------------------------------------------------------*/
 
 /* Uncomment this line to enable remapping of SPI pins */

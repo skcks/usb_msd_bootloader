@@ -4,7 +4,7 @@
 #include "sys.h"
 
 #include "flash.h"
-#include "fattester.h"
+// #include "fattester.h"
 #include "mass_mal.h"
 #include "usb_lib.h"
 #include "hw_config.h"
@@ -18,7 +18,6 @@
 #include "FAT16.h"
 
 #include "main.h"
-
 
 void usb_port_set(u8 enable)
 {
@@ -70,6 +69,12 @@ uint32_t BL_Init(void)
         return SYS_EVENT_ERR_APP;
     }
     
+    EXTI_ClearITPendingBit(EXTI_Line18);
+    EXTI_DeInit();
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_USB, DISABLE);	 //USB鏃堕挓浣胯兘	
+     	
+    __set_MSP(*(vu32*)APP_ADDR);					//鍒濆鍖朅PP鍫嗘爤鎸囬拡(鐢ㄦ埛浠ｇ爜鍖虹殑绗竴涓瓧鐢ㄤ簬瀛樻斁鏍堥《鍦板潃)
+
     // Run App
     pFun = (Fun_t)value;
     (void)(pFun)();
@@ -225,9 +230,9 @@ int main(void)
 	NVIC_Configuration();
 	
 	delay_ms(500);
- 	usb_port_set(0); 	//USB先断开
+ 	usb_port_set(0); 	//USB鍏堟柇寮�
 	delay_ms(300);
-   	usb_port_set(1);	//USB再次连接
+   	usb_port_set(1);	//USB鍐嶆杩炴帴
    	
  	USB_Interrupts_Config();    
  	Set_USBClock();   

@@ -200,7 +200,7 @@ const uint8_t FAT16_RootDirSector[FATDirSize]=
     0x00,           /*29 - File Size */
     0x00,           /*30 - File Size */
     0x00,           /*31 - File Size */
-    'B','O','O','T','L','O','A','D','E','R',' ',  /*32-42 - Volume label */
+    'H','-','B','r','a','n','d','\0','\0','\0','\0',  /*32-42 - Volume label */
     0x08,           /*43 - File attribute = Volume label */
     0x00,           /*44 - Reserved */
     0x00,           /*45 - Create Time Tenth */

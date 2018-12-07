@@ -47,7 +47,7 @@ u8 MSD_Init(void)
 	GPIOA->CRL|=0X00033300;//PA2.3.4 推挽 	    
 	GPIOA->ODR|=0X7<<2;    //PA2.3.4上拉 
 	SPIx_Init();
- 	SPIx_SetSpeed(SPI_SPEED_256);//设置到低速模式
+ 	SPIx_SetSpeed(SPI_BaudRatePrescaler_128);//设置到低速模式
 
   /* MSD chip select high */
   SD_CS=1;
@@ -456,7 +456,7 @@ u8 MSD_GoIdleState(void)
   SD_CS=1;
   /* Send dummy byte 0xFF */
   MSD_WriteByte(DUMMY);
- 	SPIx_SetSpeed(SPI_SPEED_4);//设置到低速模式
+ 	SPIx_SetSpeed(SPI_BaudRatePrescaler_128);//设置到低速模式
   return MSD_RESPONSE_NO_ERROR;
 }
 

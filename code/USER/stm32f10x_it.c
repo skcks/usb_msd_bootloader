@@ -34,10 +34,10 @@
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void USB_HP_CAN1_TX_IRQHandler(void)
-{
-  CTR_HP();
-}
+// void USB_HP_CAN1_TX_IRQHandler(void)
+// {
+//   CTR_HP();
+// }
 
 /*******************************************************************************
 * Function Name  : USB_LP_CAN_RX0_IRQHandler
@@ -47,10 +47,10 @@ void USB_HP_CAN1_TX_IRQHandler(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void USB_LP_CAN1_RX0_IRQHandler(void)
-{
-  USB_Istr();
-}
+// void USB_LP_CAN1_RX0_IRQHandler(void)
+// {
+//   USB_Istr();
+// }
 void USBWakeUp_IRQHandler(void)
 {
 }
