@@ -5,7 +5,7 @@
 
 3. app固件需修改入口地址为0x8005000, 并且修改工程中system_stm32f1xx.c文件
 
-```
+```c
 //原system_stm32f1xx.c:113
 //#define VECT_TAB_OFFSET  0x00000000U  
 #define VECT_TAB_OFFSET  0x00005000U  //修改为左侧所示

@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 2.8)
 
 project(usb-bootloader C ASM)
 
-file(GLOB CORE RELATIVE ${CMAKE_SOURCE_DIR} "CORE/*.c")
+file(GLOB CORE RELATIVE ${CMAKE_SOURCE_DIR} 
+    "CORE/startup_stm32f10x_md.s"
+    "CORE/*.c"
+)
 # file(GLOB FATFS RELATIVE ${CMAKE_SOURCE_DIR} 
 #     "FATFS/src/*.c"
 #     "FATFS/*.c"
@@ -95,7 +98,6 @@ add_definitions(-DUSE_STDPERIPH_DRIVER)
 
 
 add_executable(${ELF_NAME} 
-    CORE/startup_stm32f10x_md.s
     ${CORE}
     # ${FATFS}
     ${SPL}
