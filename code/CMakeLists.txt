@@ -46,8 +46,9 @@ include_directories(
     USER
 )
 
+string(TIMESTAMP TODAY "%Y%m%d")
 set(ELF_NAME ${PROJECT_NAME}.elf)
-set(BIN_NAME ${PROJECT_NAME}.bin)
+set(BIN_NAME ${PROJECT_NAME}_r${TODAY}.bin)
 set(MAP_NAME ${PROJECT_NAME}.map)
 
 set(LDSCRIPTS "-T STM32F103-MD.ld")
