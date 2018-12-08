@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "spi.h": "c",
-        "stm32f10x_it.h": "c",
-        "msd.h": "c"
-    }
-}
